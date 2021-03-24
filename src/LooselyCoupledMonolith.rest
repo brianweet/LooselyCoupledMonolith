@@ -1,0 +1,5 @@
+@url = http://localhost:4000
+@resourceId = 00000000-0000-0000-0000-000000000001
+
+###
+POST {{url}}/sales/orders/{{resourceId}}
