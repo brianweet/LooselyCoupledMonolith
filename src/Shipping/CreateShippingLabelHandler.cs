@@ -1,4 +1,5 @@
 using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Billing.Contracts;
 using NServiceBus;
@@ -35,6 +36,7 @@ namespace Shipping
 
         public async Task Handle(CreateShippingLabel message, IMessageHandlerContext context)
         {
+            Debug.WriteLine($"CreateShippingLabelHandler. OrderId: {message.OrderId}. MessageId: {context.MessageId}");
             await _dbContext.ShippingLabels.AddAsync(new ShippingLabel
             {
                 OrderId = message.OrderId,

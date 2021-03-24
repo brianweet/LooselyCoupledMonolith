@@ -20,7 +20,7 @@ namespace Sales
 
         private async Task SetStatus(Guid orderId)
         {
-            var order = await _dbContext.Orders.SingleAsync(x => x.OrderId == orderId);
+            var order = await _dbContext.Orders.SingleOrDefaultAsync(x => x.OrderId == orderId);
             order.Status = OrderStatus.ReadyToShip;
             await _dbContext.SaveChangesAsync();
         }
